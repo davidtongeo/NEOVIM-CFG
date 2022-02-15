@@ -1,8 +1,8 @@
-#MY NEOVIM CONFIG
+# MY NEOVIM CONFIG
 
 my personal config with neovim 
 
-#MAIN PLUGINS
+# MAIN PLUGINS
 -lsp
 -cmp
 
