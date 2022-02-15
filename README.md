@@ -1,2 +1,8 @@
-# nvim_config
-my personal neovim config 
+#MY NEOVIM CONFIG
+
+my personal config with neovim 
+
+#MAIN PLUGINS
+-lsp
+-cmp
+
