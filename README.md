@@ -5,4 +5,4 @@ my personal config with neovim
 # MAIN PLUGINS
 -lsp
 -cmp
-
+-Packer
