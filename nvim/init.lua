@@ -1,4 +1,3 @@
 require("plugins")
-
-vim.opt.termguicolors = true
-vim.cmd("colorscheme tokyonight")
+require("core.config")
+require('core.map')
