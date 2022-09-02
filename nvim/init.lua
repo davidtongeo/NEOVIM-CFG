@@ -1,3 +1,2 @@
-require("plugins")
-require("core.config")
-require('core.map')
+require('packages')
+require('core')
