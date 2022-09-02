@@ -1,8 +1,4 @@
-# MY NEOVIM CONFIG
+# NEOVIM CONFIG
+(neo)vim config with my fav plugins
 
-my personal config with neovim 
-
-# MAIN PLUGINS
--lsp
--cmp
--Packer
+![alt text]{./2022-09-02_18-47.png}
