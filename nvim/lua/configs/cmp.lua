@@ -60,13 +60,21 @@ cmp.setup({
     }),
   },
 	formatting = {
-    format = require('lspkind').cmp_format({ with_text = false, maxwidth = 50 })
+		format = lspkind.cmp_format({
+			with_text = true,
+			menu = {
+				buffer = "[BUFF]",
+				nvim_lsp = "[LSP]",
+				path = "[PATH]",
+				luasnip = "[LSNP]",
+			}
+    })
   },
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
+		{ name = 'luasnip' },
 		{ name = 'nvim_lsp_signature_help'},
 		{ name = 'buffer' },
 		{ name = 'path'},
   }),
 })
-

@@ -17,6 +17,12 @@ function(use)
 			require('configs.lsp')
 		end
 	}
+	use{
+		'onsails/lspkind-nvim',
+		config = function ()
+			require('configs.lspkind')
+		end
+	}
 	--Completion
 	use{
 		'hrsh7th/nvim-cmp',
@@ -27,12 +33,19 @@ function(use)
 			'rafamadriz/friendly-snippets',
 			'hrsh7th/cmp-nvim-lsp-signature-help',
 			'hrsh7th/cmp-buffer',
-			'hrsh7th/cmp-path'
+			'hrsh7th/cmp-path',
+			'saadparwaiz1/cmp_luasnip'
 		},
 		config = function()
 			require('configs.cmp')
 		end,
 
+	}
+	use{
+		'L3MON4D3/LuaSnip',
+		config = function ()
+			require("luasnip.loaders.from_vscode").lazy_load()
+		end
 	}
 	--pairs
 	use{
@@ -61,14 +74,6 @@ function(use)
 		"williamboman/mason.nvim",
 		config = function()
 			require('configs.mason')
-		end
-	}
-	--telescope.
-	use{
-		'nvim-telescope/telescope.nvim',
-		requires = 'nvim-lua/plenary.nvim',
-		config = function ()
-			require('config.telescope')
 		end
 	}
 end
