@@ -6,4 +6,3 @@ vim.opt.termguicolors = true
 vim.opt.background = 'dark'
 vim.opt.clipboard:append {'unnamed', 'unnamedplus'}
 
---maps

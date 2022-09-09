@@ -10,11 +10,20 @@ lspconfig.html.setup{
 	on_attach = base.on_attach,
 	capabilities = base.capabilities
 }
-lspconfig.denols.setup{
+lspconfig.tsserver.setup{
+	on_attach = base.on_attach,
+	capabilities = base.capabilities,
+	cmd = { "typescript-language-server", "--stdio" }
+}
+lspconfig.sumneko_lua.setup{
 	on_attach = base.on_attach,
 	capabilities = base.capabilities
 }
-lspconfig.sumneko_lua.setup{
+lspconfig.cssls.setup{
+	on_attach = base.on_attach,
+	capabilities = base.capabilities
+}
+lspconfig.pyright.setup{
 	on_attach = base.on_attach,
 	capabilities = base.capabilities
 }

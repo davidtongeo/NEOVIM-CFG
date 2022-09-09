@@ -12,7 +12,7 @@ function(use)
 	--LSP
 	use{
 		'neovim/nvim-lspconfig',
-		requires = 'onsails/lspkind-nvim',
+		requires = {'onsails/lspkind-nvim', 'folke/lsp-colors.nvim' },
 		config = function()
 			require('configs.lsp')
 		end
@@ -23,6 +23,16 @@ function(use)
 			require('configs.lspkind')
 		end
 	}
+	--treesitter
+	--[[use{
+		'nvim-treesitter/nvim-treesitter',
+		cmd = function()
+			vim.cmd('TSUpdate')
+		end,
+		config = function()
+			require('configs.treesitter')
+		end
+	}--]]
 	--Completion
 	use{
 		'hrsh7th/nvim-cmp',
@@ -41,6 +51,7 @@ function(use)
 		end,
 
 	}
+	--snippet configuration
 	use{
 		'L3MON4D3/LuaSnip',
 		config = function ()
@@ -74,6 +85,19 @@ function(use)
 		"williamboman/mason.nvim",
 		config = function()
 			require('configs.mason')
+		end
+	}
+	use{
+		'andweeb/presence.nvim',
+		config = function()
+			require('configs.discord')
+		end
+	}
+	--highlight colors
+	use{
+		'brenoprata10/nvim-highlight-colors',
+		config = function()
+			require('configs.colors')
 		end
 	}
 end
