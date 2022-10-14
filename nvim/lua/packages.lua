@@ -1,8 +1,8 @@
 local packer_status_ok, packer = pcall(require, "packer")
 if(not packer_status_ok) then
 	print('packer is not installed.')
-	return 
-end	
+	return
+end
 
 vim.cmd [[packadd packer.nvim]]
 
@@ -23,16 +23,6 @@ function(use)
 			require('configs.lspkind')
 		end
 	}
-	--treesitter
-	--[[use{
-		'nvim-treesitter/nvim-treesitter',
-		cmd = function()
-			vim.cmd('TSUpdate')
-		end,
-		config = function()
-			require('configs.treesitter')
-		end
-	}--]]
 	--Completion
 	use{
 		'hrsh7th/nvim-cmp',
@@ -55,9 +45,16 @@ function(use)
 	use{
 		'L3MON4D3/LuaSnip',
 		config = function ()
-			require("luasnip.loaders.from_vscode").lazy_load()
+			require('configs.luasnip')
 		end
 	}
+	use{
+		'nvim-treesitter/nvim-treesitter',
+		run = ':TSUpdate',
+		config = function()
+			require('configs.treesitter')
+		end
+}
 	--pairs
 	use{
 		'windwp/nvim-autopairs',
@@ -69,7 +66,7 @@ function(use)
 	use{
 		"EdenEast/nightfox.nvim",
 		config = function()
-			vim.cmd('colorscheme carbonfox')
+			vim.cmd('colorscheme duskfox')
 		end
 	}
 	--status bar
@@ -98,6 +95,25 @@ function(use)
 		'brenoprata10/nvim-highlight-colors',
 		config = function()
 			require('configs.colors')
+		end
+	}
+	--trouble
+	use {
+		"folke/lsp-trouble.nvim",
+		config = function()
+			require('configs.trouble')
+		end
+	}
+	use {
+		'glepnir/lspsaga.nvim',
+		config = function()
+				require('configs.lspsaga')
+		end
+	}
+	-- git
+	use{
+		'kdheepak/lazygit.nvim',
+		config = function()
 		end
 	}
 end

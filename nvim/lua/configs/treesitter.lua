@@ -1,6 +1,7 @@
 local status, treesitter = pcall(require, 'nvim-treesitter.configs')
 if not status then return end
 
+require 'nvim-treesitter.install'.compilers = { "clang" }
 treesitter.setup{
 	highlight = {
 		enable = true,
@@ -12,10 +13,15 @@ treesitter.setup{
 
 	},
 	ensure_installed = {
-		'tsx',
+		'lua',
 		'html',
 		'css',
-		'lua',
-		'json'
+		'tsx',
+		'javascript',
+		'c_sharp',
+		'json',
+		'python',
 	},
+	autoinstall = true,
 }
+

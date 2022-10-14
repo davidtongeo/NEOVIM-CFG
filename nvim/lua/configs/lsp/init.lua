@@ -5,25 +5,21 @@ local status_lsp, lspconfig = pcall(require, 'lspconfig')
 if(not status_lsp)then return end
 if (not status_base)then return end
 
---setups servers manually
-lspconfig.html.setup{
-	on_attach = base.on_attach,
-	capabilities = base.capabilities
-}
-lspconfig.tsserver.setup{
-	on_attach = base.on_attach,
-	capabilities = base.capabilities,
-	cmd = { "typescript-language-server", "--stdio" }
-}
-lspconfig.sumneko_lua.setup{
-	on_attach = base.on_attach,
-	capabilities = base.capabilities
-}
-lspconfig.cssls.setup{
-	on_attach = base.on_attach,
-	capabilities = base.capabilities
-}
-lspconfig.pyright.setup{
-	on_attach = base.on_attach,
-	capabilities = base.capabilities
-}
+
+local servers = {'html', 'cssls', 'tsserver', 'sumneko_lua', 'omnisharp', 'gdscript', 'pyright'}
+
+function SetupSv(tabl)
+	for _, server in pairs(tabl)do
+		local ServerSt, ServerConf = pcall(require, 'configs.lsp.settings.'.. server)
+		local opts = {
+			on_attach = base.on_attach,
+			capabilities = base.capabilities
+		}
+		if(ServerSt)then
+			opts = vim.tbl_deep_extend('force', ServerConf, opts)
+		end
+		lspconfig[server].setup(opts)
+	end
+end
+
+SetupSv(servers)
