@@ -21,5 +21,4 @@ function SetupSv(tabl)
 		lspconfig[server].setup(opts)
 	end
 end
-
 SetupSv(servers)
