@@ -8,3 +8,5 @@ keymap("n", "<leader>a", "<cmd>Telescope find_files<CR>", opts)
 keymap("n", "<leader>d", "<cmd>Lspsaga code_action<CR>", opts)
 keymap("n", "<leader>n", "<cmd>NvimTreeToggle<CR>", opts)
 keymap("n", "<leader>fn", "<cmd>NvimTreeFocus<CR>", opts)
+--lsp find references
+keymap("n", "<leader>ff", "<cmd>Lspsaga lsp_finder<CR>", opts)
