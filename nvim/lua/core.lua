@@ -3,7 +3,6 @@ vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.cursorline = true
 vim.opt.termguicolors = true
-vim.opt.background = "dark"
 vim.opt.clipboard:append({ "unnamed", "unnamedplus" })
 vim.opt.updatetime = 700
 vim.opt.listchars:append("eol:↴")

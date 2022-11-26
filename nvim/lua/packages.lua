@@ -62,13 +62,9 @@ packer.startup(function(use)
 	})
 	--ColorScheme
 	use({
-		"Tsuzat/NeoSolarized.nvim",
+		"folke/tokyonight.nvim",
 		config = function()
-			vim.cmd("colorscheme NeoSolarized")
-			require("NeoSolarized").setup({
-				style = "dark", -- "dark" or "light"
-				transparent = true,
-			})
+			require("configs.tokyonight")
 		end,
 	})
 	--status bar

@@ -10,3 +10,11 @@ keymap("n", "<leader>n", "<cmd>NvimTreeToggle<CR>", opts)
 keymap("n", "<leader>fn", "<cmd>NvimTreeFocus<CR>", opts)
 --lsp find references
 keymap("n", "<leader>ff", "<cmd>Lspsaga lsp_finder<CR>", opts)
+--window Management.
+keymap("n", "<leader>k", "<C-W>k", opts)
+keymap("n", "<leader>j", "<C-W>j", opts)
+keymap("n", "<leader>h", "<C-W>h", opts)
+keymap("n", "<leader>l", "<C-W>l", opts)
+
+keymap("n", "<leader>wn", "<C-W>n", opts) --Create a new Buffer.
+keymap("n", "<leader>wq", "<C-W>q", opts) --Kill a Buffer.

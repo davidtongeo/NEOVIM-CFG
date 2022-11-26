@@ -70,10 +70,10 @@ cmp.setup({
 		}),
 	},
 	sources = cmp.config.sources({
-		{ name = "nvim_lsp" },
-		{ name = "luasnip" },
+		{ name = "nvim_lsp", Keyword_Lenght = 2 },
+		{ name = "luasnip", Keyword_Lenght = 2 },
 		{ name = "nvim_lsp_signature_help" },
-		{ name = "buffer" },
+		{ name = "buffer", Keyword_Lenght = 2 },
 		{ name = "path" },
 	}),
 })

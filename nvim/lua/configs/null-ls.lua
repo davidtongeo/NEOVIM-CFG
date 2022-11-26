@@ -8,5 +8,6 @@ nullls.setup({
 		nullls.builtins.formatting.stylua,
 		nullls.builtins.formatting.csharpier,
 		nullls.builtins.formatting.prettierd,
+		nullls.builtins.formatting.gofumpt,
 	},
 })

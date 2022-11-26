@@ -9,7 +9,8 @@ if not status_base then
 	return
 end
 
-local servers = { "html", "cssls", "tsserver", "sumneko_lua", "omnisharp", "gdscript", "pyright" }
+local servers =
+{ "html", "cssls", "tsserver", "sumneko_lua", "omnisharp", "gdscript", "pyright", "gopls", "rust_analyzer" }
 
 --config icons.
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
@@ -20,20 +21,12 @@ end
 
 local config = {
 	-- disable virtual text
-	virtual_text = false,
+	virtual_text = true,
 	-- show signs
 	signs = { active = signs },
 	update_in_insert = true,
 	underline = true,
 	severity_sort = true,
-	float = {
-		focusable = false,
-		style = "minimal",
-		border = "rounded",
-		source = "always",
-		header = "",
-		prefix = "",
-	},
 }
 
 vim.diagnostic.config(config)
