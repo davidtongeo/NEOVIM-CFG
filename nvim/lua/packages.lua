@@ -53,13 +53,6 @@ packer.startup(function(use)
 			require("configs.treesitter")
 		end,
 	})
-	--pairs
-	use({
-		"windwp/nvim-autopairs",
-		config = function()
-			require("nvim-autopairs").setup({})
-		end,
-	})
 	--ColorScheme
 	use({
 		"folke/tokyonight.nvim",
@@ -141,18 +134,21 @@ packer.startup(function(use)
 		end,
 	})
 	use({
-		"akinsho/bufferline.nvim",
-		tag = "v3.*",
-		requires = "kyazdani42/nvim-web-devicons",
-		config = function()
-			require("bufferline").setup({})
-		end,
-	})
-	use({
 		"jose-elias-alvarez/null-ls.nvim",
 		requires = "nvim-lua/plenary.nvim",
 		config = function()
 			require("configs.null-ls")
 		end,
+	})
+	--Harpoon
+	use({
+		"ThePrimeagen/harpoon",
+		requires = "nvim-lua/plenary.nvim",
+		config = function()
+			require("configs.harpoon")
+		end,
+	})
+	use({
+		"mfussenegger/nvim-jdtls",
 	})
 end)

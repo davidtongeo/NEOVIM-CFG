@@ -9,8 +9,19 @@ if not status_base then
 	return
 end
 
-local servers =
-{ "html", "cssls", "tsserver", "sumneko_lua", "omnisharp", "gdscript", "pyright", "gopls", "rust_analyzer" }
+local servers = {
+	"html",
+	"cssls",
+	--"denols",
+	"tsserver",
+	"sumneko_lua",
+	"omnisharp",
+	"gdscript",
+	"pylsp",
+	"gopls",
+	"rust_analyzer",
+	"jsonls",
+}
 
 --config icons.
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
@@ -46,3 +57,9 @@ function SetupSv(tabl)
 end
 
 SetupSv(servers)
+
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+	callback = function()
+		vim.lsp.codelens.refresh()
+	end,
+})

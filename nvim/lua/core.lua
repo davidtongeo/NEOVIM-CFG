@@ -1,11 +1,23 @@
+vim.opt.nu = true
 vim.opt.relativenumber = true
+
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
+vim.opt.expandtab = true
+
+vim.opt.smartindent = true
+
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
+
 vim.opt.cursorline = true
 vim.opt.termguicolors = true
+
 vim.opt.clipboard:append({ "unnamed", "unnamedplus" })
-vim.opt.updatetime = 700
+
+vim.opt.updatetime = 200
 vim.opt.listchars:append("eol:↴")
+
 vim.opt.list = true
 --AUTOCMD!
 local grp = vim.api.nvim_create_augroup("Usv", { clear = true })
@@ -15,4 +27,9 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 		vim.lsp.buf.format()
 	end,
 	group = grp,
+})
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+	callback = function()
+		local _, _ = pcall(vim.lsp.codelens.refresh)
+	end,
 })
