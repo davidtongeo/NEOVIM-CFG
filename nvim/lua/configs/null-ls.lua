@@ -1,13 +1,13 @@
 local status, nullls = pcall(require, "null-ls")
 if not status then
-	return
+    return
 end
 
 nullls.setup({
-	sources = {
-		nullls.builtins.formatting.stylua,
-		nullls.builtins.formatting.csharpier,
-		nullls.builtins.formatting.prettierd,
-		nullls.builtins.formatting.gofumpt,
-	},
+    sources = {
+        nullls.builtins.formatting.stylua,
+        nullls.builtins.formatting.csharpier,
+        nullls.builtins.formatting.prettierd,
+        nullls.builtins.formatting.gofumpt,
+    },
 })
