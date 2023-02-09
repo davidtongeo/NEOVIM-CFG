@@ -7,7 +7,7 @@ nullls.setup({
     sources = {
         nullls.builtins.formatting.stylua,
         nullls.builtins.formatting.csharpier,
-        nullls.builtins.formatting.prettierd,
+        nullls.builtins.formatting.prettier,
         nullls.builtins.formatting.gofumpt,
     },
 })
