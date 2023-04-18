@@ -1,5 +1,9 @@
-local state, saga = pcall(require, "lspsaga")
-if not state then
+local sagaOk, saga = pcall(require, "lspsaga")
+local kmapOk, kmap = pcall(require, "core")
+if not sagaOk then
+	return
+end
+if not kmapOk then
 	return
 end
 saga.setup({
@@ -29,3 +33,8 @@ saga.setup({
 		black = "#1c1c19",
 	},
 })
+
+-- Keymaps
+kmap.setKmap("n", "<leader>ff", "<cmd>Lspsaga lsp_finder<CR>")
+kmap.setKmap("n", "<leader>fd", "<cmd>Lspsaga code_action<CR>")
+kmap.setKmap("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<CR>")

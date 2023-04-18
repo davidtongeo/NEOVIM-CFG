@@ -1,3 +1,4 @@
-require("packages")
+-- Core cfg
 require("core")
-require("keys")
+-- Require the pluggins
+require("plg")

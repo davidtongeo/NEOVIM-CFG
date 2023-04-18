@@ -1,4 +1,13 @@
-vim.opt.scrolloff = 10
+local M = {}
+local keymap = vim.keymap.set
+local opts = { noremap = true, silent = true }
+
+keymap("", "<Space>", "<Nop>", opts)
+vim.g.mapleader = " "
+
+M.setKmap = function(mode, key, action)
+    keymap(mode, key, action, opts)
+end
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -14,19 +23,11 @@ vim.opt.incsearch = true
 
 vim.opt.cursorline = true
 vim.opt.termguicolors = true
-
 vim.opt.clipboard:append({ "unnamedplus" })
 
 vim.opt.updatetime = 50
 vim.opt.listchars:append("eol:↴")
 
 vim.opt.list = true
---AUTOCMD!
-local grp = vim.api.nvim_create_augroup("Usv", { clear = true })
-local grpCursor = vim.api.nvim_create_augroup("Cursor", { clear = true })
-vim.api.nvim_create_autocmd("BufWritePre", {
-    callback = function()
-        vim.lsp.buf.format()
-    end,
-    group = grp,
-})
+
+return M
