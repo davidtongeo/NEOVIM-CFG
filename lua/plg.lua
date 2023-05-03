@@ -104,6 +104,14 @@ require("lazy").setup({
     {
         "lukas-reineke/indent-blankline.nvim",
     },
+    -- Status line
+    {
+        "nvim-lualine/lualine.nvim",
+        dependencies = "nvim-tree/nvim-web-devicons",
+        config = function()
+            require("configs.statusline")
+        end,
+    },
     {
         "j-hui/fidget.nvim",
         config = function()

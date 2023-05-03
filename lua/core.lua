@@ -10,11 +10,12 @@ M.setKmap = function(mode, key, action)
 end
 
 vim.opt.nu = true
+vim.opt.scrolloff = 8
 vim.opt.relativenumber = true
 
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
-vim.opt.expandtab = true
+vim.opt.expandtab = false 
 
 vim.opt.smartindent = true
 

@@ -15,11 +15,7 @@ local servers = {
 	--"denols",
 	"tsserver",
 	"lua_ls",
-	"sqlls",
-	"omnisharp",
 	"gdscript",
-	"pylsp",
-	"gopls",
 	"rust_analyzer",
 	"jsonls",
 }

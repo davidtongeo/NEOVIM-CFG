@@ -12,7 +12,9 @@ treesitter.setup({
 	},
 	indent = {
 		enable = true,
-		disable = {},
+		disable = {
+            "gdscript",
+        },
 	},
 	ensure_installed = {
 		"lua",
