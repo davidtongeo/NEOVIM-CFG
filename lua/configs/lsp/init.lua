@@ -1,6 +1,7 @@
 --import the base & lsp
 local status_base, base = pcall(require, "configs.lsp.base")
 local status_lsp, lspconfig = pcall(require, "lspconfig")
+
 --check the modules
 if not status_lsp then
 	return
@@ -14,7 +15,7 @@ local servers = {
 	"cssls",
 	--"denols",
 	"tsserver",
-	"lua_ls",
+	--"lua_ls",
 	"gdscript",
 	"rust_analyzer",
 	"jsonls",
