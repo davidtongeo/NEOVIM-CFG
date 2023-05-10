@@ -1,25 +1,16 @@
 vim.o.background = "dark" -- or "light" for light mode
 -- setup must be called before loading the colorscheme
 -- Default options:
-require("gruvbox").setup({
-	undercurl = true,
-	underline = true,
-	bold = true,
-	italic = {
-		strings = true,
-		operators = true,
-		coments = true,
+require("tokyonight").setup({
+	transparent = true,
+	styles = {
+		-- Style to be applied to different syntax groups
+		-- Value is any valid attr-list value for `:help nvim_set_hl`
+		comments = { italic = true },
+		keywords = { italic = true },
+		-- Background styles. Can be "dark", "transparent" or "normal"
+		sidebars = "dark", -- style for sidebars, see below
+		floats = "dark", -- style for floating windows
 	},
-	strikethrough = true,
-	invert_selection = false,
-	invert_signs = false,
-	invert_tabline = false,
-	invert_intend_guides = false,
-	inverse = true, -- invert background for search, diffs, statuslines and errors
-	contrast = "", -- can be "hard", "soft" or empty string
-	palette_overrides = {},
-	overrides = {},
-	dim_inactive = false,
-	transparent_mode = false,
 })
-vim.cmd("colorscheme gruvbox")
+vim.cmd("colorscheme tokyonight-night")
