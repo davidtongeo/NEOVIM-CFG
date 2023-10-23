@@ -3,7 +3,12 @@ if not status then
 	return
 end
 
-require("nvim-treesitter.install").compilers = { "clang" }
+if (vim.loop.os_uname().sysname == "Linux") then
+	require("nvim-treesitter.install").compilers = { "gcc" }
+else 
+	require("nvim-treesitter.install").compilers = { "clang" }
+end
+
 treesitter.setup({
 	highlight = {
 		enable = true,
@@ -22,6 +27,8 @@ treesitter.setup({
 		"java",
 		"html",
 		"css",
+		"c",
+		"cpp",
 		"tsx",
 		"javascript",
 		"json",
