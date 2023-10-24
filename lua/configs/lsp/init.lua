@@ -12,12 +12,14 @@ end
 
 local servers = {
 	"html",
-	"cssls",
-	--"denols",
+	"clangd",
+	"cmake",
+	--"cssls",
 	"tsserver",
 	--"lua_ls",
-	"gdscript",
 	"rust_analyzer",
+	--"csharp_ls",
+	"omnisharp",
 	"jsonls",
 }
 
@@ -60,16 +62,4 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 	callback = function()
 		vim.lsp.codelens.refresh()
 	end,
-})
--- Setup SignatureHelp
-local signOk, signature = pcall(require, "lsp_signature")
-
-if not signOk then
-	return
-end
-
-signature.setup({
-	handler_opts = {
-		border = "none",
-	},
 })

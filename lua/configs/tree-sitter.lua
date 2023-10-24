@@ -3,7 +3,7 @@ if not status then
 	return
 end
 
-require("nvim-treesitter.install").compilers = { "gcc" }
+require("nvim-treesitter.install").compilers = { "clang" }
 treesitter.setup({
 	highlight = {
 		enable = true,
@@ -13,8 +13,8 @@ treesitter.setup({
 	indent = {
 		enable = true,
 		disable = {
-            "gdscript",
-        },
+			"gdscript",
+		},
 	},
 	ensure_installed = {
 		"lua",

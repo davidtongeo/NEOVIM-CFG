@@ -12,7 +12,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
-	-- lsp related...
+	-- lsp related
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
@@ -36,6 +36,9 @@ require("lazy").setup({
 		end,
 	},
 	{
+		"mfussenegger/nvim-jdtls",
+	},
+	{
 		"glepnir/lspsaga.nvim",
 		dependencies = {
 			"neovim/nvim-lspconfig",
@@ -46,19 +49,13 @@ require("lazy").setup({
 		end,
 	},
 	{
-		"jose-elias-alvarez/null-ls.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-		},
+		"stevearc/conform.nvim",
 		config = function()
-			require("configs.null-ls")
+			require("configs.conform")
 		end,
 	},
 	{
 		"onsails/lspkind-nvim",
-	},
-	{
-		"ray-x/lsp_signature.nvim",
 	},
 	-- highlight
 	{
@@ -92,7 +89,11 @@ require("lazy").setup({
 	-- Coloscheme
 
 	{
-		"folke/tokyonight.nvim",
+		"rose-pine/neovim",
+		version = false,
+		lazy = false,
+		priority = 1000, -- make sure to load this before all the other start plugins
+		  -- Optional; default configuration will be used if setup isn't called.
 		config = function()
 			require("colorscheme")
 		end,
@@ -114,9 +115,13 @@ require("lazy").setup({
 	},
 	{
 		"j-hui/fidget.nvim",
+		tag = "legacy",
 		config = function()
 			require("configs.fidget")
 		end,
+	},
+	{
+		"Hoffs/omnisharp-extended-lsp.nvim"
 	},
 	{
 		"nvim-tree/nvim-tree.lua",

@@ -7,6 +7,9 @@ if not kmapOk then
 	return
 end
 saga.setup({
+	ui = {
+		code_action = ""
+	},
 	symbol_in_winbar = {
 		enable = true,
 		separator = " -> ",
