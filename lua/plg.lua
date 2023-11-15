@@ -119,7 +119,6 @@ require("lazy").setup({
 		cmd = [[Neotree toggle]],
 		init = function()
 			require("neo-tree")
-			vim.cmd([[Neotree toggle]])
 		end,
 		keys = {
 			{
@@ -143,6 +142,13 @@ require("lazy").setup({
 	},
 	{
 		"Hoffs/omnisharp-extended-lsp.nvim",
+	},
+	{
+		"folke/neodev.nvim",
+		opts = {},
+		config = function()
+			require("neodev").setup()
+		end,
 	},
 	-- Langs related
 	{
