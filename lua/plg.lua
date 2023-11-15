@@ -27,7 +27,8 @@ require("lazy").setup({
 		end,
 	},
 	{
-		"nvim-telescope/telescope.nvim",
+		"nvim-telescope/telescope-fzf-native.nvim",
+		build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 		},
@@ -93,7 +94,7 @@ require("lazy").setup({
 		version = false,
 		lazy = false,
 		priority = 1000, -- make sure to load this before all the other start plugins
-		  -- Optional; default configuration will be used if setup isn't called.
+		-- Optional; default configuration will be used if setup isn't called.
 		config = function()
 			require("colorscheme")
 		end,
@@ -107,10 +108,30 @@ require("lazy").setup({
 	},
 	-- Status line
 	{
-		"nvim-lualine/lualine.nvim",
-		dependencies = "nvim-tree/nvim-web-devicons",
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v3.x",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+			"MunifTanjim/nui.nvim",
+			"3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+		},
+		cmd = [[Neotree toggle]],
+		init = function()
+			require("neo-tree")
+			vim.cmd([[Neotree toggle]])
+		end,
+		keys = {
+			{
+				"<Leader>n",
+				function()
+					require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
+				end,
+				desc = "toggle tree",
+			},
+		},
 		config = function()
-			require("configs.statusline")
+			require("configs.neo-tree")
 		end,
 	},
 	{
@@ -121,19 +142,8 @@ require("lazy").setup({
 		end,
 	},
 	{
-		"Hoffs/omnisharp-extended-lsp.nvim"
+		"Hoffs/omnisharp-extended-lsp.nvim",
 	},
-	{
-		"nvim-tree/nvim-tree.lua",
-		dependencies = {
-			"nvim-tree/nvim-web-devicons",
-		},
-		tag = "nightly",
-		config = function()
-			require("configs.nvim-tree")
-		end,
-	},
-
 	-- Langs related
 	{
 		"williamboman/mason.nvim",

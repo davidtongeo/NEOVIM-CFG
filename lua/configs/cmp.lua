@@ -54,9 +54,9 @@ cmp.setup({
 	},
 	window = {
 		completion = {
-			winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
-			col_offset = -3,
-			side_padding = 0,
+			completeopt = "menu,menuone,noinsert",
+			--col_offset = -3,
+			--side_padding = 0,
 		},
 	},
 	formatting = {
@@ -69,6 +69,11 @@ cmp.setup({
 
 			return kind
 		end,
+	},
+	experimental = {
+		ghost_text = {
+			hl_group = "CmpGhostText",
+		},
 	},
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp", keyword_length = 0 },

@@ -1,7 +1,7 @@
 local util = require("conform.util")
 local conform = require("conform")
 -- may change since idk when i'm gonna to rework  that directory so yea
-local formatter_configs = vim.fn.stdpath("config") .. "\\lua\\configs\\conform\\formatter_configs\\"
+local formatter_configs = vim.fn.stdpath("config") .. "/lua/configs/conform/formatter_configs/"
 
 -- modify the formater for c#
 local clang_format = require("conform.formatters.clang_format")
