@@ -1,5 +1,6 @@
---local path = "C:\\Users\\DAVIDD\\AppData\\Local\\nvim-data\\mason\\packages\\jdtls"
-local path = "C:/Users/DAVIDD/AppData/Local/nvim-data/mason/packages/jdtls"
+--local path = "C:\\Users\\DAVIDD\\AppData\\Local\\nvim-data\\mason\\packages\\jdtls
+--local path = "C:/Users/DAVIDD/AppData/Local/nvim-data/mason/packages/jdtls"
+local path = vim.fn.stdpath("data") .. "/mason/packages/jdtls"
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 --local workspace_dir = vim.fn.stdpath("data") .. "\\site\\java\\workspace-root\\" .. project_name
 local workspace_dir = vim.fn.stdpath("data") .. "/site/java/workspace-root/" .. project_name
@@ -73,6 +74,6 @@ require("jdtls").start_or_attach(config)
 
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
-vim.opt.expandtab = false 
+vim.opt.expandtab = false
 
 vim.opt.smartindent = true

@@ -147,7 +147,7 @@ require("lazy").setup({
 		"folke/neodev.nvim",
 		opts = {},
 		config = function()
-			require("neodev").setup()
+			require("neodev").setup({})
 		end,
 	},
 	-- Langs related
