@@ -90,11 +90,10 @@ require("lazy").setup({
 	-- Coloscheme
 
 	{
-		"rose-pine/neovim",
-		version = false,
+		"craftzdog/solarized-osaka.nvim",
 		lazy = false,
-		priority = 1000, -- make sure to load this before all the other start plugins
-		-- Optional; default configuration will be used if setup isn't called.
+		priority = 1000,
+		opts = {},
 		config = function()
 			require("colorscheme")
 		end,

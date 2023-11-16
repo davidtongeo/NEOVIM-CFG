@@ -1,3 +1,4 @@
+local base = require("configs.lsp.base")
 --local path = "C:\\Users\\DAVIDD\\AppData\\Local\\nvim-data\\mason\\packages\\jdtls
 --local path = "C:/Users/DAVIDD/AppData/Local/nvim-data/mason/packages/jdtls"
 local path = vim.fn.stdpath("data") .. "/mason/packages/jdtls"
@@ -69,11 +70,6 @@ local config = {
 	init_options = {
 		bundles = {},
 	},
+	on_attach = base.on_attach,
 }
 require("jdtls").start_or_attach(config)
-
-vim.opt.shiftwidth = 4
-vim.opt.tabstop = 4
-vim.opt.expandtab = false
-
-vim.opt.smartindent = true
