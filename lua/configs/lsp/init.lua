@@ -16,7 +16,7 @@ local servers = {
 	"cmake",
 	--"cssls",
 	"tsserver",
-	--"lua_ls",
+	"lua_ls",
 	"rust_analyzer",
 	--"csharp_ls",
 	"omnisharp",

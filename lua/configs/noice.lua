@@ -1,10 +1,34 @@
+vim.diagnostic.config({
+	update_in_insert = false,
+})
 require("noice").setup({
 	lsp = {
+		progress = {
+			enabled = not vim.bo.filetype == "java",
+		},
 		-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
 		override = {
 			["vim.lsp.util.convert_input_to_markdown_lines"] = true,
 			["vim.lsp.util.stylize_markdown"] = true,
 			["cmp.entry.get_documentation"] = true,
+		},
+		documentation = {
+			view = "hover",
+			---@type NoiceViewOptions
+			opts = {
+				lang = "markdown",
+				replace = true,
+				render = "plain",
+				format = { "{message}" },
+				win_options = { concealcursor = "n", conceallevel = 3 },
+				size = {
+					width = "auto",
+					height = "auto",
+					max_width = 60,
+					max_height = 10,
+				},
+				--
+			},
 		},
 	},
 	routes = {

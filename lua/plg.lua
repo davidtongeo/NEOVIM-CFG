@@ -14,10 +14,17 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	-- lsp related
 	{
+		"folke/neodev.nvim",
+		config = function()
+			require("configs.neodev")
+		end,
+	},
+	{
 		"neovim/nvim-lspconfig",
 		config = function()
 			require("configs.lsp")
 		end,
+		dependencies = { "folke/neodev.nvim" },
 	},
 	{
 		"folke/lsp-trouble.nvim",
