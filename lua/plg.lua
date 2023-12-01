@@ -18,6 +18,7 @@ require("lazy").setup({
 		config = function()
 			require("configs.neodev")
 		end,
+		priority = 1000,
 	},
 	{
 		"neovim/nvim-lspconfig",
@@ -114,6 +115,12 @@ require("lazy").setup({
 	},
 	-- Status line
 	{
+		"nvim-lualine/lualine.nvim",
+		config = function()
+			require("configs.statusline")
+		end,
+	},
+	{
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v3.x",
 		dependencies = {
@@ -153,6 +160,16 @@ require("lazy").setup({
 			require("configs.noice")
 		end,
 	},
+	{
+		"linrongbin16/lsp-progress.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = function()
+			require("lsp-progress").setup({
+				max_size = 40,
+			})
+		end,
+	},
+
 	-- Langs related
 	{
 		"williamboman/mason.nvim",
