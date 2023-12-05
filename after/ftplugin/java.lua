@@ -1,9 +1,6 @@
 local base = require("configs.lsp.base")
---local path = "C:\\Users\\DAVIDD\\AppData\\Local\\nvim-data\\mason\\packages\\jdtls
---local path = "C:/Users/DAVIDD/AppData/Local/nvim-data/mason/packages/jdtls"
 local path = vim.fn.stdpath("data") .. "/mason/packages/jdtls"
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
---local workspace_dir = vim.fn.stdpath("data") .. "\\site\\java\\workspace-root\\" .. project_name
 local workspace_dir = vim.fn.stdpath("data") .. "/site/java/workspace-root/" .. project_name
 local config = {
 	-- The command that starts the language server

@@ -1,4 +1,2 @@
--- Core cfg
-require("core")
--- Require the pluggins
-require("plg")
+require("essentials")
+require("lazyInit")
