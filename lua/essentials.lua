@@ -4,7 +4,6 @@ vim.opt.clipboard:append({ "unnamedplus" }) -- Clipboard
 vim.opt.nu = true
 vim.opt.scrolloff = 8
 vim.opt.relativenumber = true
-vim.cmd([[colorscheme habamax]])
 
 -- Tabs as method of indenting
 vim.opt.shiftwidth = 4
