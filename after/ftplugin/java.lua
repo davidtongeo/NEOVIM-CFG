@@ -1,4 +1,4 @@
-local base = require("configs.lsp.base")
+local base = require("plugins.lsp.base")
 local path = vim.fn.stdpath("data") .. "/mason/packages/jdtls"
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 local workspace_dir = vim.fn.stdpath("data") .. "/site/java/workspace-root/" .. project_name
