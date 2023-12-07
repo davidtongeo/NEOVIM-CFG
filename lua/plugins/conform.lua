@@ -6,6 +6,7 @@ return {
 				cs = { "clang_format" },
 				lua = { "stylua" },
 				cpp = { "clang_format" },
+				java = { "google-java-format" },
 			},
 			format_on_save = {
 				timeout_ms = 1000,
