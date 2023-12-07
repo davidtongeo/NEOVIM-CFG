@@ -1,6 +1,8 @@
 return {
 	"stevearc/conform.nvim",
 	opts = function()
+		-- extra confg
+		require("conform.formatters.google-java-format").args = { "-a", "-" }
 		return {
 			formatters_by_ft = {
 				cs = { "clang_format" },
