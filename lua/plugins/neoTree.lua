@@ -8,6 +8,11 @@ return {
 		-- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
 	},
 	lazy = false,
+	init = function()
+		-- ignore the netrw default
+		vim.g.loaded_netrwPlugin = 1
+		vim.g.loaded_netrw = 1
+	end,
 	opts = function()
 		return {
 			close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
