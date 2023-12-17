@@ -17,10 +17,6 @@ vim.opt.termguicolors = true
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
--- ignore the netrw default
-vim.g.loaded_netrwPlugin = 1
-vim.g.loaded_netrw = 1
-
 -- Misc options
 vim.g.mapleader = " "
 vim.opt.cursorline = true
