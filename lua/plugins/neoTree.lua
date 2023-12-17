@@ -7,10 +7,7 @@ return {
 		"MunifTanjim/nui.nvim",
 		-- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
 	},
-	init = function()
-		require("neo-tree")
-		vim.cmd([[Neotree toggle position=current]])
-	end,
+	lazy = false,
 	opts = function()
 		return {
 			close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
