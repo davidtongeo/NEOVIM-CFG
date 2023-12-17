@@ -9,6 +9,7 @@ return {
 				lua = { "stylua" },
 				cpp = { "clang_format" },
 				java = { "google-java-format" },
+				js = { "prettier" },
 			},
 			format_on_save = {
 				timeout_ms = 1000,

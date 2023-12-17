@@ -1,7 +1,10 @@
 return {
 	"nvim-telescope/telescope-fzf-native.nvim",
 	build = "make",
-	dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+		"nvim-telescope/telescope.nvim",
+	},
 	opts = function()
 		return {
 			extensions = {

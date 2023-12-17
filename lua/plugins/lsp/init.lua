@@ -15,5 +15,8 @@ return {
 		local lspconfig = require("lspconfig")
 		-- setups
 		lspconfig.lua_ls.setup(opts)
+		lspconfig.tsserver.setup(opts)
+		lspconfig.cssls.setup(opts)
+		lspconfig.tailwindcss.setup(opts)
 	end,
 }
