@@ -15,7 +15,7 @@ return {
 					theme = "dropdown",
 					layout_config = {
 						height = 40,
-						width = 100,
+						width = 70,
 					},
 				},
 			},
@@ -37,7 +37,7 @@ return {
 					grouped = true,
 					layout_config = {
 						height = 40,
-						width = 100,
+						width = 70,
 					},
 				},
 			},

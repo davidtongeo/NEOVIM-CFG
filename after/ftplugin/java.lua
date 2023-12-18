@@ -2,7 +2,10 @@ local base = require("plugins.lsp.base")
 --local path = vim.fn.stdpath("data") .. "/mason/packages/jdtls"
 local path = os.getenv("HOME") .. "/git_clone/jdtls"
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
-local workspace_dir = vim.fn.stdpath("data") .. "/site/java/workspace-root/" .. project_name
+
+local workspace_dir = os.getenv("HOME")
+	.. "/.local/share/eclipse/"
+	.. vim.fn.fnamemodify(require("jdtls.setup").find_root({ "gradlew", "mvnw", ".git" }), ":p:h:t")
 local config = {
 	-- The command that starts the language server
 	-- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
