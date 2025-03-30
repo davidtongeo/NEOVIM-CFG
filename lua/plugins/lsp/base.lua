@@ -21,11 +21,10 @@ M.on_attach = function(client, bufnr)
 	buf_set_keymap("n", "<leader>la", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
 	buf_set_keymap("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
 	buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-
-	vim.lsp.inlay_hint.enable(true)
+	buf_set_keymap("n", "<space>ld", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 end
 --capabilities
---M.capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+--M.capabilities = vim.lsp.protocol.make_client_capabilities()
 M.capabilities = require("blink.cmp").get_lsp_capabilities()
 
 return M

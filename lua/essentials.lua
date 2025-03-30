@@ -23,3 +23,7 @@ vim.opt.cursorline = true
 vim.opt.updatetime = 50
 vim.opt.listchars:append("eol:↴")
 vim.opt.list = true
+
+vim.diagnostic.config({
+	virtual_text = false,
+})
