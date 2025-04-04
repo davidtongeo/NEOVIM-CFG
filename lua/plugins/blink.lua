@@ -39,12 +39,17 @@ return {
 		},
 
 		-- (Default) Only show the documentation popup when manually triggered
-		completion = { documentation = { auto_show = true, auto_show_delay_ms = 300 } },
+		completion = {
+			documentation = { auto_show = true, auto_show_delay_ms = 300 },
+			ghost_text = { enabled = true },
+			menu = { auto_show = true },
+			trigger = { show_on_keyword = true },
+		},
 
 		-- Default list of enabled providers defined so that you can extend it
 		-- elsewhere in your config, without redefining it, due to `opts_extend`
 		sources = {
-			default = { "lsp", "path", "snippets", "buffer" },
+			default = { "lsp", "path", "buffer", "snippets" },
 		},
 
 		fuzzy = { implementation = "prefer_rust_with_warning" },
