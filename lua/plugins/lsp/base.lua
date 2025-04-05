@@ -13,7 +13,7 @@ M.on_attach = function(client, bufnr)
 	-- Mappings.
 	local opts = { noremap = true, silent = true }
 	-- enable native vim lsp
-	--vim.lsp.completion.enable(true, client.id, bufnr, { autotrigger = true })
+	-- vim.lsp.completion.enable(true, client.id, bufnr, { autotrigger = true })
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
 	buf_set_keymap("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
 	buf_set_keymap("n", "<leader>lw", "<Cmd>lua vim.lsp.buf.code_action()<CR>", opts)
@@ -25,6 +25,7 @@ M.on_attach = function(client, bufnr)
 end
 --capabilities
 --M.capabilities = vim.lsp.protocol.make_client_capabilities()
-M.capabilities = require("blink.cmp").get_lsp_capabilities()
+--M.capabilities = require("blink.cmp").get_lsp_capabilities()
+M.capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 return M
