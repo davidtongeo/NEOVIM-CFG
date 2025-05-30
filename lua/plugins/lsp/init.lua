@@ -12,6 +12,7 @@ return {
 		}
 	end,
 	config = function(_, opts)
+		require("neoconf").setup() -- setup neodev
 		local lspconfig = require("lspconfig")
 		-- setups
 		lspconfig.lua_ls.setup(opts)
@@ -20,5 +21,9 @@ return {
 		--lspconfig.ts_ls.setup(opts)
 		lspconfig.cssls.setup(opts)
 		lspconfig.gopls.setup(opts)
+		lspconfig.gopls.setup(opts)
+		lspconfig.gdscript.setup(opts)
+		lspconfig.basedpyright.setup(opts)
+		lspconfig.svelte.setup(opts)
 	end,
 }

@@ -57,9 +57,5 @@ return {
 			"<leader>lr",
 			"<cmd>Telescope lsp_references<cr>",
 		},
-		{
-			"<leader>n",
-			"<cmd>Telescope file_browser<cr>",
-		},
 	},
 }
