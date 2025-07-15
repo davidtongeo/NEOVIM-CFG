@@ -22,6 +22,7 @@ M.on_attach = function(client, bufnr)
 	buf_set_keymap("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
 	buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
 	buf_set_keymap("n", "<space>ld", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+	client.server_capabilities.semanticTokensProvider = nil
 end
 --capabilities
 --M.capabilities = vim.lsp.protocol.make_client_capabilities()

@@ -18,7 +18,6 @@ return {
 		lspconfig.lua_ls.setup(opts)
 		lspconfig.csharp_ls.setup(opts)
 		lspconfig.html.setup(opts)
-		--lspconfig.ts_ls.setup(opts)
 		lspconfig.cssls.setup(opts)
 		lspconfig.gopls.setup(opts)
 		lspconfig.gopls.setup(opts)
