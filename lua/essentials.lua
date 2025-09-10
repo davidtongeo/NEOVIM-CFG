@@ -27,3 +27,12 @@ vim.opt.list = true
 vim.diagnostic.config({
 	virtual_text = false,
 })
+
+
+-- remaps
+vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { noremap = true })
+vim.keymap.set('n', '<A-h>', ':tabprevious<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<A-l>', ':tabnext<CR>', { noremap = true, silent = true })
+vim.keymap.set('t', '<A-h>', [[<C-\><C-n>:tabprevious<CR>]], { noremap = true, silent = true })
+vim.keymap.set('t', '<A-l>', [[<C-\><C-n>:tabnext<CR>]], { noremap = true, silent = true })
+vim.keymap.set('n', '<Leader>tn', ':tabnew<CR>', { noremap = true, silent = true })
