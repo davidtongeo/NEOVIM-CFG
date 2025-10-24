@@ -1,0 +1,7 @@
+{
+  "plugins": {
+    "blink.cmp": {
+      "version": "'main'"
+    }
+  }
+}

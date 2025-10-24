@@ -1,2 +1,2 @@
-require("essentials")
-require("lazyInit")
+require("core")
+require("mini-deps")
