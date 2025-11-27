@@ -37,3 +37,9 @@ vim.keymap.set('t', '<A-h>', [[<C-\><C-n>:tabprevious<CR>]], { noremap = true, s
 vim.keymap.set('t', '<A-l>', [[<C-\><C-n>:tabnext<CR>]], { noremap = true, silent = true })
 vim.keymap.set('n', '<Leader>tn', ':tabnew<CR>', { noremap = true, silent = true })
 
+
+-- for windows use
+if vim.loop.os_uname().sysname == "Windows_NT" then
+    vim.o.shell = "powershell.exe"
+end
+
