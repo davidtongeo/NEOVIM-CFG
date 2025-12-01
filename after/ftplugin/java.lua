@@ -1,14 +1,15 @@
+local fixPath = require("customfn").fixPath
 --local path = vim.fn.stdpath("data") .. "/mason/packages/jdtls"
-local path = vim.fn.stdpath("data") .. "/mason/packages/jdtls"
+local path = fixPath(vim.fn.stdpath("data") .. "/mason/packages/jdtls")
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
-local workspace_dir = vim.fn.stdpath("data") .. "/site/java/workspace-root/" .. project_name
+local workspace_dir = fixPath(vim.fn.stdpath("data") .. "/site/java/workspace-root/" .. project_name)
 local config = {
     -- The command that starts the language server
     -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
     cmd = {
 
         -- 💀
-        "/usr/bin/java", -- or '/path/to/java17_or_newer/bin/java'
+        "java", -- or '/path/to/java17_or_newer/bin/java'
         -- depends on if `java` is in your $PATH env variable and if it points to the right version.
 
         "-Declipse.application=org.eclipse.jdt.ls.core.id1",
@@ -99,16 +100,16 @@ local config = {
             -- And search for `interface RuntimeOption`
             -- The `name` is NOT arbitrary, but must match one of the elements from `enum ExecutionEnvironment` in the link above
             -- configuration = {
-            runtimes = {
-                {
-                    name = "JavaSE-21",
-                    path = "/usr/lib/jvm/java-21-openjdk/",
-                },
-                {
-                    name = "JavaSE-24",
-                    path = "/usr/lib/jvm/java-24-openjdk/",
-                },
-            },
+            -- runtimes = {
+            --     {
+            --         name = "JavaSE-21",
+            --         path = "/usr/lib/jvm/java-21-openjdk/",
+            --     },
+            --     {
+            --         name = "JavaSE-24",
+            --         path = "/usr/lib/jvm/java-24-openjdk/",
+            --     },
+            -- },
         },
     },
 
