@@ -1,17 +1,26 @@
 local fixPath = require("customfn").fixPath
---local path = vim.fn.stdpath("data") .. "/mason/packages/jdtls"
-local path = fixPath(vim.fn.stdpath("data") .. "/mason/packages/jdtls")
+local jdtls = require("jdtls")
+local root_dir = require("jdtls.setup").find_root({ "gradlew", ".git", "mvnw" })
+
+-- Base paths
+local data_path = vim.fn.stdpath("data")
+local jdtls_path = fixPath(data_path .. "/mason/packages/jdtls")
+
+-- Workspace folder (per project)
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
-local workspace_dir = fixPath(vim.fn.stdpath("data") .. "/site/java/workspace-root/" .. project_name)
+local workspace_dir = fixPath(data_path .. "/site/java/workspace-root/" .. project_name)
+
+-- Locate launcher JAR dynamically
+local launcher_jar = vim.fn.glob(jdtls_path .. "/plugins/org.eclipse.equinox.launcher_*.jar")
+
+-- Pick configuration based on OS
+local system = (vim.fn.has("win32") == 1 and "win")
+    or (vim.fn.has("macunix") == 1 and "mac")
+    or "linux"
+
 local config = {
-    -- The command that starts the language server
-    -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
     cmd = {
-
-        -- 💀
-        "java", -- or '/path/to/java17_or_newer/bin/java'
-        -- depends on if `java` is in your $PATH env variable and if it points to the right version.
-
+        "java",
         "-Declipse.application=org.eclipse.jdt.ls.core.id1",
         "-Dosgi.bundles.defaultStartLevel=4",
         "-Declipse.product=org.eclipse.jdt.ls.core.product",
@@ -19,46 +28,21 @@ local config = {
         "-Dlog.level=ALL",
         "-Xmx1g",
         "--add-modules=ALL-SYSTEM",
-        "--add-opens",
-        "java.base/java.util=ALL-UNNAMED",
-        "--add-opens",
-        "java.base/java.lang=ALL-UNNAMED",
+        "--add-opens", "java.base/java.util=ALL-UNNAMED",
+        "--add-opens", "java.base/java.lang=ALL-UNNAMED",
 
-        -- 💀
-        "-jar",
-        --path .. "\\plugins\\org.eclipse.equinox.launcher_1.6.500.v20230622-2056.jar",
-        vim.fn.glob(path .. "/plugins/org.eclipse.equinox.launcher_*.jar"),
-        -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ^^^^^^^^^^^^^^
-        -- Must point to the                                                     Change this to
-        -- eclipse.jdt.ls installation                                           the actual version
+        "-jar", launcher_jar,
+        "-configuration", jdtls_path .. "/config_" .. system,
 
-        -- 💀
-        "-configuration",
-        --path .. "\\config_win",
-        path .. "/config_linux",
-        -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        ^^^^^^
-        -- Must point to the                      Change to one of `linux`, `win` or `mac`
-        -- eclipse.jdt.ls installation            Depending on your system.
-
-        -- 💀
-        -- See `data directory configuration` section in the README
-        "-data",
-        workspace_dir,
+        "-data", workspace_dir,
     },
 
-    -- 💀
-    -- This is the default if not provided, you can remove it. Or adjust as needed.
-    -- One dedicated LSP server & client will be started per unique root_dir
-    root_dir = require("jdtls.setup").find_root({ "gradlew", ".git", "mvnw" }),
+    root_dir = root_dir,
 
-    -- Here you can configure eclipse.jdt.ls specific settings
-    -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
-    -- for a list of options
     settings = {
         java = {
             signatureHelp = { enabled = true },
-            contentProvider = { preferred = "fernflower" }, -- Use fernflower to decompile library code
-            -- Specify any completion options
+            contentProvider = { preferred = "fernflower" },
             completion = {
                 favoriteStaticMembers = {
                     "org.hamcrest.MatcherAssert.assertThat",
@@ -77,52 +61,28 @@ local config = {
                     "sun.*",
                 },
             },
-            -- Specify any options for organizing imports
             sources = {
                 organizeImports = {
                     starThreshold = 9999,
                     staticStarThreshold = 9999,
                 },
             },
-            -- How code generation should act
             codeGeneration = {
                 toString = {
                     template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}",
                 },
-                hashCodeEquals = {
-                    useJava7Objects = true,
-                },
+                hashCodeEquals = { useJava7Objects = true },
                 useBlocks = true,
             },
-            -- If you are developing in projects with different Java versions, you need
-            -- to tell eclipse.jdt.ls to use the location of the JDK for your Java version
-            -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
-            -- And search for `interface RuntimeOption`
-            -- The `name` is NOT arbitrary, but must match one of the elements from `enum ExecutionEnvironment` in the link above
-            -- configuration = {
-            -- runtimes = {
-            --     {
-            --         name = "JavaSE-21",
-            --         path = "/usr/lib/jvm/java-21-openjdk/",
-            --     },
-            --     {
-            --         name = "JavaSE-24",
-            --         path = "/usr/lib/jvm/java-24-openjdk/",
-            --     },
-            -- },
         },
     },
 
-    -- Language server `initializationOptions`
-    -- You need to extend the `bundles` with paths to jar files
-    -- if you want to use additional eclipse.jdt.ls plugins.
-    --
-    -- See https://github.com/mfussenegger/nvim-jdtls#java-debug-installation
-    --
-    -- If you don't plan on using the debugger or other eclipse.jdt.ls plugins you can remove this
     init_options = {
         bundles = {},
     },
 }
+
+-- Attach debugger extensions (Spring)
 vim.list_extend(config.init_options.bundles, require("spring_boot").java_extensions())
-require("jdtls").start_or_attach(config)
+
+jdtls.start_or_attach(config)

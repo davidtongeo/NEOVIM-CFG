@@ -1,5 +1,6 @@
 MiniDeps.add({
-    source = "bluz71/vim-moonfly-colors"
+    source = "nyoom-engineering/oxocarbon.nvim"
 })
 
-vim.cmd [[colorscheme moonfly]]
+vim.opt.background = "dark" -- set this to dark or light
+vim.cmd.colorscheme "oxocarbon"
