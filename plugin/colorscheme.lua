@@ -1,6 +1,6 @@
 MiniDeps.add({
-    source = "nyoom-engineering/oxocarbon.nvim"
+    source = "AlexvZyl/nordic.nvim"
 })
 
 vim.opt.background = "dark" -- set this to dark or light
-vim.cmd.colorscheme "oxocarbon"
+vim.cmd.colorscheme "nordic"
