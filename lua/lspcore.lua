@@ -16,5 +16,7 @@ m.on_attach = function(argument)
     buf_set_keymap("n", "<space>ld", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
     client.server_capabilities.semanticTokensProvider = nil
 end
+-- only works for blink
+m.capabilities = require("blink.cmp").get_lsp_capabilities();
 
 return m;
