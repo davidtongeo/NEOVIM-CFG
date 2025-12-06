@@ -5,6 +5,7 @@ local root_dir = require("jdtls.setup").find_root({ "gradlew", ".git", "mvnw" })
 -- Base paths
 local data_path = vim.fn.stdpath("data")
 local jdtls_path = fixPath(data_path .. "/mason/packages/jdtls")
+local dap_path = vim.fn.glob(data_path .. "/mason/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar")
 
 -- Workspace folder (per project)
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
@@ -78,7 +79,9 @@ local config = {
     },
 
     init_options = {
-        bundles = {},
+        bundles = {
+            dap_path,
+        },
     },
 }
 
