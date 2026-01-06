@@ -12,8 +12,9 @@ m.on_attach = function(argument)
     buf_set_keymap("n", "<leader>lr", "<Cmd>lua vim.lsp.buf.rename()<CR>", opts)
     buf_set_keymap("n", "<leader>la", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
     buf_set_keymap("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
-    buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-    buf_set_keymap("n", "<space>ld", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+    buf_set_keymap("n", "gi", "<Cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+    buf_set_keymap("n", "<space>ld", "<Cmd>lua vim.diagnostic.open_float()<CR>", opts)
+    buf_set_keymap("n", "<space>ls", "<Cmd>Telescope lsp_references<CR>", opts)
     client.server_capabilities.semanticTokensProvider = nil
 end
 -- only works for blink

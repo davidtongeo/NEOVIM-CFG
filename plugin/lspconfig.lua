@@ -6,6 +6,7 @@ MiniDeps.add({
 
 -- enable configurations
 vim.lsp.enable("lua_ls")
+vim.lsp.enable("gopls")
 
 
 vim.lsp.config('*', {

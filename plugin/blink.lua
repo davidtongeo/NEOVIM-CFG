@@ -48,16 +48,20 @@ require("blink.cmp").setup({
         ghost_text = { enabled = false },
         menu = { auto_show = true },
         trigger = { show_on_keyword = true },
+        fallback = true,
+        keyword = {
+            range = "full",
+        }
     },
 
     -- Default list of enabled providers defined so that you can extend it
     -- elsewhere in your config, without redefining it, due to `opts_extend`
     sources = {
-        default = { "lsp", "path", "buffer", "snippets" },
+        default = { "snippets", "lsp", "path", "buffer", },
         providers = {
             lsp = {
                 timeout_ms = 200,
-                async = true,
+                async = false,
             },
             buffer = {
                 min_keyword_length = 4,
