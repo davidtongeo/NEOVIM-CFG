@@ -1,2 +1,3 @@
+require("lazyInstall")
 require("core")
-require("mini-deps")
+

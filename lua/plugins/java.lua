@@ -1,7 +1,7 @@
-MiniDeps.add({
-    source = "JavaHello/spring-boot.nvim",
-    depends = {
+return {
+    "JavaHello/spring-boot.nvim",
+    dependencies = {
         "mfussenegger/nvim-jdtls", -- or nvim-java
         "nvim-lspconfig",
     }
-})
+}
