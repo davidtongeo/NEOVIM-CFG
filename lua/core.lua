@@ -22,6 +22,7 @@ vim.opt.cursorline = true
 vim.opt.updatetime = 50
 vim.opt.listchars:append("eol:↴")
 vim.opt.list = true
+vim.o.autoread = true
 
 vim.diagnostic.config({
     virtual_text = false,
@@ -41,3 +42,4 @@ vim.keymap.set('n', '<Leader>tan', ':tabnew<CR>', { noremap = true, silent = tru
 if vim.loop.os_uname().sysname == "Windows_NT" then
     vim.o.shell = "powershell.exe"
 end
+
