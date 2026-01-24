@@ -3,11 +3,19 @@ local cb = require("lspcore");
 return {
     "neovim/nvim-lspconfig",
     config = function()
+        vim.lsp.config('gopls', {
+          capabilities = cb.capabilities,
+          settings = {
+            gopls = {
+              semanticTokens = false, -- Disable semantic token highlighting
+            },
+          },
+        })
+ 
         -- enable configurations
         vim.lsp.enable("lua_ls")
         vim.lsp.enable("gopls")
-
-        vim.lsp.config('*', {
+           vim.lsp.config('*', {
             capabilities = cb.capabilities,
         })
 

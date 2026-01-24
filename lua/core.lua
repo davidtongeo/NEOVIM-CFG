@@ -24,6 +24,20 @@ vim.opt.listchars:append("eol:↴")
 vim.opt.list = true
 vim.o.autoread = true
 
+-- Automatically reload files changed outside Neovim
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold" }, {
+    pattern = "*",
+    command = "checktime",
+})
+
+-- Notify user when a buffer is reloaded automatically
+vim.api.nvim_create_autocmd("FileChangedShellPost", {
+    pattern = "*",
+    callback = function()
+        vim.notify("File changed on disk. Buffer reloaded.", vim.log.levels.INFO)
+    end,
+})
+
 vim.diagnostic.config({
     virtual_text = false,
 })
@@ -35,7 +49,7 @@ vim.keymap.set('n', '<A-h>', ':tabprevious<CR>', { noremap = true, silent = true
 vim.keymap.set('n', '<A-l>', ':tabnext<CR>', { noremap = true, silent = true })
 vim.keymap.set('t', '<A-h>', [[<C-\><C-n>:tabprevious<CR>]], { noremap = true, silent = true })
 vim.keymap.set('t', '<A-l>', [[<C-\><C-n>:tabnext<CR>]], { noremap = true, silent = true })
-vim.keymap.set('n', '<Leader>tan', ':tabnew<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<Leader>tn', ':tabnew<CR>', { noremap = true, silent = true })
 
 
 -- for windows use
